@@ -36,5 +36,9 @@
     "semi": ["error", "always"],
     "vars-on-top": "error",
     "yoda": "error"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
+
 }
