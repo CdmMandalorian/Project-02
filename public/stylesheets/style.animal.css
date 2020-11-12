@@ -1,0 +1,47 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+
+.grid-container{
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: "header header haeader"
+                        "sidebar main sidebar"
+                        "footer footer footer";
+
+}
+
+.title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 42px;
+  grid-area: header;
+}
+
+.sidebar1{
+  grid-area: sidebar;
+}
+
+.animalSpeciese{
+  border: 5px;
+  border-color: cadetblue;
+  grid-area: main;
+}
+
+.sidebar2{
+  grid-area: sidebar;
+}
+
+.about{
+  grid-area: footer;
+}
+
+#stickyfooter {
+  position: fixed;
+  font-family: 'Philosopher', sans-serif;
+}
+
+h1{
+  font-family: 'Philosopher', sans-serif;
+}
