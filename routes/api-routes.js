@@ -1,6 +1,20 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const multer = require("multer");
+const uuid = require("uuid").v4;
+let pictureURL = "";
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    const { originalname } = file;
+    pictureURL = `${uuid()}-${originalname}`;
+    cb(null, `${uuid()}-${originalname}`);
+  }
+});
+const upload = multer({ storage });
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -14,11 +28,31 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/animals", upload.single("picture"), (req, res) => {
+    console.log(req.body.picture);
+    db.Animal.create({
+      animal_species: req.body.animal_species,
+      longitude: req.body.longitude,
+      latitude: req.body.latiitude,
+      hostile: req.body.hostile,
+      foundByUser: req.body.username,
+      note: req.body.note,
+      picture: pictureURL
+    })
+      .then(() => {
+        res.redirect(307, "/members");
+      })
+      .catch(err => {
+        res.status(401).json(err);
+      });
+  });
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
+      userName: req.body.userName,
       email: req.body.email,
       password: req.body.password
     })
@@ -45,6 +79,7 @@ module.exports = function(app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        userName: req.user.userName,
         email: req.user.email,
         id: req.user.id
       });
