@@ -3,7 +3,6 @@ form.login {
   margin-top: 50px;
 }
 
-
 .grid-container{
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: "header header haeader"
@@ -12,18 +11,21 @@ form.login {
 
 }
 
-.title {
+.header {
   text-align: center;
+  grid-area: header;
+}
+
+.title{
   font-family: 'Poppins', sans-serif;
   font-size: 42px;
-  grid-area: header;
 }
 
 .sidebar1{
   grid-area: sidebar;
 }
 
-.animalSpeciese{
+.animalType{
   border: 5px;
   border-color: cadetblue;
   grid-area: main;
