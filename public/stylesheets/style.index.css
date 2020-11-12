@@ -1,0 +1,22 @@
+.jumbotron {
+  background-image: url("/public/img/m0bv61rf4im51.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+ 
+h1 {
+  font-family: 'Philosopher', sans-serif;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+.botContainer {
+  
+}
+
+#stickyfooter {
+  position: fixed;
+  font-family: 'Philosopher', sans-serif;
+}

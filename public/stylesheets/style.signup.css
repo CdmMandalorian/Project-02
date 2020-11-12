@@ -1,0 +1,35 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.navbar {
+  border-bottom: 4px solid #8d736b;
+  background-color: lightsteelblue;
+}
+
+body{
+  background-color: #49936a;
+  color: #de213d;
+}
+
+h1 {
+  font-family: 'Philosopher', sans-serif;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #de213d;
+}
+
+
+
+
+#stickyfooter {
+  position: fixed;
+  font-family: 'Philosopher', sans-serif;
+}
