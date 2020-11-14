@@ -8,15 +8,15 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/");
     }
-    res.render("signup.handlebars");
+    res.render("index.handlebars")
   });
 
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/");
     }
     res.render("login.handlebars");
   });
