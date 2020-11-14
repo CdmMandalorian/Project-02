@@ -18,7 +18,7 @@ form.login {
   justify-items: center;
 }
 
-.grid{
+.grid {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 200px auto auto;
