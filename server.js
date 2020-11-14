@@ -2,7 +2,6 @@
 const express = require("express");
 const exphbs = require("express-handlebars")
 const session = require("express-session");
-const exphbs = require("express-handlebars")
 const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
