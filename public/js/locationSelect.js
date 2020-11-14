@@ -19,7 +19,7 @@ $(document).ready(() => {
       const animalLng = $("#animal-lng").val();
       const animalLat = $("#animal-lat").val();
       const animalNote = $("#animal-note").val();
-      const animalPic = $("#animal-pic").val();
+      // const animalPic = $("#animal-pic").val();
 
       $.post("/api/animals", {
         animal_species: animal,
@@ -28,7 +28,7 @@ $(document).ready(() => {
         hostile: true,
         foundByUser: userName,
         note: animalNote,
-        picture: animalPic
+        // picture: animalPic
       })
         .then(() => {
           window.location.replace("/members");

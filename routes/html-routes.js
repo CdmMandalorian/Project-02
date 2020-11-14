@@ -30,4 +30,8 @@ module.exports = function(app) {
   app.get("/locationSelect", isAuthenticated, (req, res) => {
     res.render("locationSelect.handlebars");
   });
+
+  app.get("/explore", isAuthenticated, (req, res) => {
+    res.render("explore.handlebars");
+  });
 };
