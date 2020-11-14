@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="stylesheets/style.css"  rel="stylesheet" >
+    <script src="js/animal.js"></script>
+    <title>Animal logger</title>
+</head>
+<body>
+    <form class="grid-container">
+        <div class="header">
+            <h1 class="title">Animal Logger</h1>
+            <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Wildlife Observer</a></li>
+                <li><a href="#">Catalogue</a></li>
+                <li><a href="#">Log an Animal</a></li>
+            </ul>
+        </div>
+        </div>
+        
+        <hr>
+
+        <div id="myModal" class="myModal">
+            <span class="close">&times;</span>
+            <p>How do you want to search</p>
+            <div class="form-check">
+                <input class="form-check-input, mr-9" type="checkbox" value="" id="defaultCheck1" name="checkBox1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Animal Name
+                </label>
+                <input class="form-check-input, mr-9" type="checkbox" value="" id="defaultCheck2" name="checkBox2">
+                <label class="form-check-label" for="defaultCheck2">
+                  Animal Class
+                </label>
+                <input class="form-check-input, mr-9" type="checkbox" value="" id="defaultCheck3" name="checkBox3">
+                <label class="form-check-label" for="defaultCheck2">
+                  Color
+                </label>
+                <input class="form-check-input, mr-9" type="checkbox" value="" id="defaultCheck4" name="checkBox4">
+                <label class="form-check-label" for="defaultCheck4">
+                  Note
+                </label>
+                
+                <div class="modalSubmit">
+                    <button type="button" class="btn btn-default" aria-label="Left Align">Submit</button>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="sidebar1"></div>
+        <div class="animalDetails">
+            <input class="animalName" id="animalColor" placeholder="Animal Name"> </input>
+            <input class="animalType" id="animalType" placeholder="Animal Class"> </input>
+            <input class="animalColor" id="animalName" placeholder="Color"> </input>
+            <input class="animalNote" id="animalNote" placeholder="Note"> </input>
+        </div>
+        <div class="sidebar2"></div>
+        <hr>
+        <div class="about">
+            <p>made by: Curtis Blake Mando and Patrick</p>
+            <p>about</p>
+            <p>contact</p>
+        </div>
+    </form>
+</body>
+</html>
+
+    
