@@ -44,6 +44,8 @@ module.exports = function(app) {
     }
   });
 
+  app.post("/upload", upload.single("animal-pic"), (req, res) => {});
+
   app.post("/api/animals", upload.single("animal-pic"), (req, res) => {
     const fileName = req.file != null ? req.file.filename : null;
     console.log(fileName)
