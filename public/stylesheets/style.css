@@ -21,6 +21,13 @@ form.login {
   font-size: 42px;
 }
 
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 200px auto auto;
+  grid-gap: 1em;
+}
+
 .sidebar1{
   grid-area: sidebar;
 }
@@ -50,6 +57,12 @@ form.login {
   grid-area: sidebar;
 }
 
+<<<<<<< HEAD
+#animal-note{
+  /* width: 100%; */
+  height: 150px;
+}
+=======
 .about{
   grid-area: footer;
 }
@@ -58,3 +71,4 @@ form.login {
   position: fixed;
 
 }
+>>>>>>> 8a538bdd50be8e5597c212895f7a6b3fc91585ae
