@@ -3,56 +3,60 @@ form.login {
   margin-top: 50px;
 }
 
-.grid-container{
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-areas: "header header haeader"
-                        "sidebar main sidebar"
-                        "footer footer footer";
-
+/*-------------------------------------------------------------*/
+container-map{
+  position: fixed;
+  right: 0px;
+  grid-row: 1;
+  grid-column: 2 / 3;
 }
 
-.header {
-  text-align: center;
-  grid-area: header;
+#map{ 
+  width: 70vw;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
 
-.title{
-  font-family: 'Poppins', sans-serif;
-  font-size: 42px;
+.grid{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 200px auto auto;
+  grid-gap: 1em;
 }
 
-.sidebar1{
-  grid-area: sidebar;
+.coordinates {
+background: rgba(0, 0, 0, 0.5);
+color: #fff;
+position: absolute;
+bottom: 40px;
+left: 10px;
+padding: 5px 10px;
+margin: 0;
+font-size: 11px;
+line-height: 18px;
+border-radius: 3px;
+display: none;
 }
 
-.myModal{
-  position: fixed; /* Stay in place */
-  /*z-index: 1;  Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 500px; /* Full width */
-  height: 100px; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color:white; /* Fallback color */
-  background-color: white; /* Black w/ opacity */
-  border: 2px;
-  border-color: black;
+.container-adding-info{
+  /* margin-left: 25%; */
+  padding-left: 50px;
+  justify-content: center;
+  grid-row: 1;
+  grid-column: 1;
 }
 
-.animalType{
-  border: 5px;
-  border-color: cadetblue;
-  grid-area: main;
+input {
+  width: 100%;
 }
 
-.sidebar2{
-  grid-area: sidebar;
+#animal-note{
+  /* width: 100%; */
+  height: 150px;
 }
-
-.about{
-  grid-area: footer;
-}
+/*----------------------------------------------*/
 
 #stickyfooter {
   position: fixed;

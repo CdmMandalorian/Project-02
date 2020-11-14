@@ -4,25 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
     <link href="stylesheets/style.css"  rel="stylesheet" >
     <script src="js/animal.js"></script>
-    <title>Animal logger</title>
-</head>
+    <title>Passport Authentication</title></head>
 <body>
     <form class="grid-container">
         <div class="header">
-            <h1 class="title">Animal Logger</h1>
-            <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="#">Wildlife Observer</a></li>
-                <li><a href="#">Catalogue</a></li>
-                <li><a href="#">Log an Animal</a></li>
-            </ul>
-        </div>
+        <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="row">
+                        <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Wildlife Observer</a></li>
+                            <li><a href="#">Catalogue</a></li>
+                            <li><a href="#">Log an Animal</a></li>
+                        </ul>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3"></div>
+                            <h2>Welcome <span class="member-name"></span></h2>
+                        </div>
+                        <div class="col-md-1 col-md-offset-3">
+                            <a class="navbar-brand" href="/logout">Logout</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </nav>      
         </div>
         
         <hr>
@@ -56,13 +69,59 @@
         </div>
 
         <div class="sidebar1"></div>
-        <div class="animalDetails">
-            <input class="animalName" id="animalColor" placeholder="Animal Name"> </input>
-            <input class="animalType" id="animalType" placeholder="Animal Class"> </input>
-            <input class="animalColor" id="animalName" placeholder="Color"> </input>
-            <input class="animalNote" id="animalNote" placeholder="Note"> </input>
+
+
+        <div class="grid">
+            <div class="container-adding-info">
+            <form class="add-observation" action="/upload" method="POST">
+                <div id= "animalType">
+                    <label for="animal-type">Type of Animal:</label>
+                    <input id="animal-type" name="animal-type">
+                </div>
+
+                <div id="animalNote">
+                    <label for="animal-note">Notes:</label>
+                    <input type="textarea" id="animal-note" name="animal-note">
+                </div>
+                
+                <div id="animalName">
+                    <label for="animal-note">Name:</label>
+                    <input type="textarea" id="animal-name" name="animal-name">
+                </div>
+
+                <div id="animalColor">
+                    <label for="animal-color">Color:</label>
+                    <input type="textarea" id="animal-color" name="animal-color">
+                </div>
+
+                <label for="animal-lng">Longitude Found:</label>
+                <input id="animal-lng" name="animal-lng">
+
+                <label for="animal-lat">Latitude Found:</label>
+                <input id="animal-lat" name="animal-lat">
+
+                
+
+                <label for="animal-pic">Picture:</label>
+                <input type="file" name="animal-pic" id="animal-pic">
+
+                <button type="submit" id="create-observation" class="btn btn-default">Create an Observation</button>
+            </form>
+            </div>
+
+            <div class="container-map">
+            <form class="get-location">
+                <button type="submit" id="send-location" class="btn btn-default">Send Arrow Location</button>
+                <button id="recenter" class="btn btn-default">Bring Drag Arrow to Location</button>
+                <div id='map'></div>
+                <pre id="coordinates" class="coordinates"></pre>
+            </form>
+            </div>
         </div>
+
+
         <div class="sidebar2"></div>
+
         <hr>
         <div class="about">
             <p>made by: Curtis Blake Mando and Patrick</p>
@@ -72,5 +131,6 @@
     </form>
 </body>
 </html>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/locationSelect.js"></script>
     
