@@ -10,7 +10,7 @@ form.login {
 
 body{
   background-color: #49936a;
-  color: #de213d;
+  color: black;
 }
 
 h1 {
@@ -23,13 +23,27 @@ p {
 
 h2 {
   font-family: 'Poppins', sans-serif;
-  color: #de213d;
+  color: black;
 }
 
+a {
+  padding-left: 7%;
+}
 
+span.form-inline.my-2.my-lg-0 {
+  float: inline-end;
+}
+a.nav-link.active {
+  padding-left: 10%;
+}
 
+div.navbar-nav {
+  width: 300px;
+}
 
-#stickyfooter {
-  position: fixed;
+#footer {
+  position: sticky;
   font-family: 'Philosopher', sans-serif;
+  width: 100%;
+  text-align: center;
 }

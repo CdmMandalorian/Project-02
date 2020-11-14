@@ -1,7 +1,14 @@
 .jumbotron {
-  background-image: url("/public/img/m0bv61rf4im51.png");
+  background-image: url("/img/wildlife.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: stretch;
+  background-size: 1840px 410px;
+  color: black;
+}
+
+
+body {
+  background-color: #49936a;
 }
  
 h1 {
@@ -12,11 +19,99 @@ p {
   font-family: 'Poppins', sans-serif;
 }
 
-.botContainer {
+div.botContainer {
+  display: inline-flex;
+  width: 1140px;
+}
+
+div.contactContainer {
+  margin-left: 0%;
+}
+
+#footer {
+  position: sticky;
+  font-family: 'Philosopher', sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+form {
+  margin-left: 2%;
+  width: 980px;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  padding-left: 7%;
+  color: black;
+}
+
+.searchForm{
+  float: right;
+  margin-bottom: 1%;
+  font-family: 'Poppins', sans-serif;
+}
+
+a.nav-link {
+  font-family: 'Poppins', sans-serif;
+}
+
+a.nav-link.active {
+  padding-left: 10%;
+
+}
+
+div.navbar-nav {
+  width: 300px;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+.navbar {
+  border-bottom: 4px solid #8d736b;
+  background-color: lightsteelblue;
+  width: 100%;
   
 }
 
-#stickyfooter {
-  position: fixed;
+div.card  {
+  width: 140px;
+}
+img.card-img-top {
+  width: 140px;
+  height: 110px;
+}
+
+
+div.aboutCont {
+  width: 400px;
+  margin-left: 2%;
+  
+}
+
+div.aboutRow1, div.aboutRow2 {
+  display: flex;
+}
+
+.navbar-brand {
+  font-size: 26px;
   font-family: 'Philosopher', sans-serif;
+}
+
+
+@media screen and (min-width: 1080px) {
+    .jumbotron {
+        
+        background-size: 1300px 455px;
+    
+    }
+
+    form {
+      
+      width: 480px;
+      
+    }
 }

@@ -50,17 +50,18 @@ input {
   width: 100%;
 }
 
-<<<<<<< HEAD:public/stylesheets/style.animal.css
-#stickyfooter {
-  position: fixed;
-  font-family: 'Philosopher', sans-serif;
-=======
 #animal-note{
   /* width: 100%; */
   height: 150px;
->>>>>>> 2b700e7d6ae1626ec11b164d807352b7a30ba882:public/stylesheets/style.css
 }
 
 h1{
   font-family: 'Philosopher', sans-serif;
+}
+
+#footer {
+  position: sticky;
+  font-family: 'Philosopher', sans-serif;
+  width: 100%;
+  text-align: center;
 }
