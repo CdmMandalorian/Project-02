@@ -48,24 +48,21 @@ module.exports = function(app) {
   });
 
   app.post("/upload", upload.single("picture"), (req, res) => {
-    
-    //Call user DB and check what user so we can provide it to the foundByUser
-
-    db.Animal.create({
-      animal_species: req.body.type,
-      longitude: req.body.longitude,
-      latitude: req.body.latitude,
-      hostile: true,
-      foundByUser: req.body.foundByUser,
-      note: req.body.note,
-      picture: fileStoredPath
-    })
-      .then(() => {
-        res.redirect(307, "/members");
+      db.Animal.create({
+        animal_species: req.body.type,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude,
+        hostile: true,
+        foundByUser: req.body.username,
+        note: req.body.note,
+        picture: fileStoredPath
       })
-      .catch(err => {
-        res.status(401).json(err);
-      });
+        .then(() => {
+          res.redirect(307, "/members");
+        })
+        .catch(err => {
+          res.status(401).json(err);
+        });
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -88,6 +85,7 @@ module.exports = function(app) {
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
+    sessionStorage.clear();
     res.redirect("/");
   });
 
