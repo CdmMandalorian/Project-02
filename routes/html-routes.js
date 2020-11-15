@@ -21,10 +21,10 @@ module.exports = function(app) {
     res.render("login.handlebars");
   });
 
-  app.get("/sign-up", (req, res) => {
+  app.get("/signup", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/login");
+      res.redirect("/members");
     }
     res.render("signup.handlebars");
   });
