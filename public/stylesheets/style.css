@@ -12,7 +12,7 @@ form.login {
   background-color: #49936a;
 }
 
-container-map{
+.container-map{
   position: fixed;
   right: 0px;
   grid-row: 1;
@@ -27,21 +27,15 @@ container-map{
   justify-items: center;
 }
 
-<<<<<<< HEAD
-=======
 .grid {
->>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 200px auto auto;
   grid-gap: 1em;
-<<<<<<< HEAD
-=======
 }
 
 .sidebar1{
   grid-area: sidebar;
->>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
 }
 
 .coordinates {
@@ -73,12 +67,10 @@ input {
 #animal-note{
   /* width: 100%; */
   height: 150px;
-<<<<<<< HEAD
-=======
+
 }
 .about{
   grid-area: footer;
->>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
 }
 /*----------------------------------------------*/
 
