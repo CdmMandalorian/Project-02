@@ -116,3 +116,7 @@ display: none;
 input {
   width: 100%;
 }
+
+#user-name{
+  display: none;
+}
