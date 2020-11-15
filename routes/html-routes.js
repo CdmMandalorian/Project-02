@@ -33,11 +33,7 @@ module.exports = function(app) {
   });
 
   app.get("/members", isAuthenticated, (req, res) => {
-<<<<<<< HEAD
-    res.render("animal.handlebars");
-=======
     res.render("members.handlebars");
->>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
   });
   app.post("/members", isAuthenticated, (req, res) => {
     res.render("members.handlebars");
