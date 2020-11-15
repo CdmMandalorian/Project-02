@@ -3,15 +3,17 @@ const db = require("../models");
 const passport = require("../config/passport");
 const multer = require("multer");
 const uuid = require("uuid").v4;
-let pictureURL = "";
+const path = require("path")
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads");
   },
   filename: (req, file, cb) => {
-    const { originalname } = file;
-    pictureURL = `${uuid()}-${originalname}`;
-    cb(null, `${uuid()}-${originalname}`);
+    const ext = path.extname(file.originalname)
+    const id = uuid();
+    const filePath = `uploads/${id}${ext}`;
+    cb(null, filePath);
   }
 });
 const upload = multer({ storage });
@@ -28,16 +30,33 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/animals", upload.single("picture"), (req, res) => {
-    console.log(req.body.picture);
+  app.get("/api/animals", async (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      const currentAnimals = await db.Animal.findAll()
+      const currentAnimalArray = []
+      currentAnimals.forEach(animal => currentAnimalArray.push(animal.dataValues));
+      res.json(currentAnimalArray);
+    }
+  });
+
+  app.post("/upload", upload.single("animal-pic"), (req, res) => {});
+
+  app.post("/api/animals", upload.single("animal-pic"), (req, res) => {
+    const fileName = req.file != null ? req.file.filename : null;
+    console.log(fileName)
     db.Animal.create({
       animal_species: req.body.animal_species,
       longitude: req.body.longitude,
       latitude: req.body.latiitude,
       hostile: req.body.hostile,
-      foundByUser: req.body.username,
+      foundByUser: req.body.foundByUser,
       note: req.body.note,
-      picture: pictureURL
+      picture: fileName
     })
       .then(() => {
         res.redirect(307, "/members");

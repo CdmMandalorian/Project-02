@@ -4,6 +4,14 @@ form.login {
 }
 
 /*-------------------------------------------------------------*/
+.navbar-header{
+  background-color: lightsteelblue;
+}
+
+.body{
+  background-color: #49936a;
+}
+
 container-map{
   position: fixed;
   right: 0px;
@@ -19,11 +27,21 @@ container-map{
   justify-items: center;
 }
 
-.grid{
+<<<<<<< HEAD
+=======
+.grid {
+>>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 200px auto auto;
   grid-gap: 1em;
+<<<<<<< HEAD
+=======
+}
+
+.sidebar1{
+  grid-area: sidebar;
+>>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
 }
 
 .coordinates {
@@ -55,10 +73,63 @@ input {
 #animal-note{
   /* width: 100%; */
   height: 150px;
+<<<<<<< HEAD
+=======
+}
+.about{
+  grid-area: footer;
+>>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
 }
 /*----------------------------------------------*/
 
 #stickyfooter {
   position: fixed;
 
+}
+
+.container-map{
+  position: fixed;
+  right: 0px;
+  grid-row: 1;
+  grid-column: 2 / 3;
+}
+
+#map{ 
+  width: 70vw;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 200px auto auto;
+  grid-gap: 1em;
+}
+
+.coordinates {
+background: rgba(0, 0, 0, 0.5);
+color: #fff;
+position: absolute;
+bottom: 40px;
+left: 10px;
+padding: 5px 10px;
+margin: 0;
+font-size: 11px;
+line-height: 18px;
+border-radius: 3px;
+display: none;
+}
+
+.container-adding-info{
+  /* margin-left: 25%; */
+  justify-content: center;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+input {
+  width: 100%;
 }

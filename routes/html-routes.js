@@ -18,7 +18,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("login.handlebars");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -33,10 +33,18 @@ module.exports = function(app) {
   });
 
   app.get("/members", isAuthenticated, (req, res) => {
+<<<<<<< HEAD
     res.render("animal.handlebars");
+=======
+    res.render("members.handlebars");
+>>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
   });
 
   app.get("/locationSelect", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/locationSelect.html"));
+    res.render("locationSelect.handlebars");
+  });
+
+  app.get("/explore", isAuthenticated, (req, res) => {
+    res.render("explore.handlebars");
   });
 };
