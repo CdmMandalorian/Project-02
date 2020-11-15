@@ -26,6 +26,9 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     res.render("members.handlebars");
   });
+  app.post("/members", isAuthenticated, (req, res) => {
+    res.render("members.handlebars");
+  });
 
   app.get("/locationSelect", isAuthenticated, (req, res) => {
     res.render("locationSelect.handlebars");

@@ -5,15 +5,18 @@ const multer = require("multer");
 const uuid = require("uuid").v4;
 const path = require("path")
 
+let fileStoredPath = ``;
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads");
+    cb(null, "./public/img/uploads");
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname)
     const id = uuid();
-    const filePath = `uploads/${id}${ext}`;
-    cb(null, filePath);
+    fileStoredPath = `${id}${ext}`;
+    console.log(fileStoredPath)
+    cb(null, fileStoredPath);
   }
 });
 const upload = multer({ storage });
@@ -44,19 +47,18 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/upload", upload.single("animal-pic"), (req, res) => {});
+  app.post("/upload", upload.single("picture"), (req, res) => {
+    
+    //Call user DB and check what user so we can provide it to the foundByUser
 
-  app.post("/api/animals", upload.single("animal-pic"), (req, res) => {
-    const fileName = req.file != null ? req.file.filename : null;
-    console.log(fileName)
     db.Animal.create({
-      animal_species: req.body.animal_species,
+      animal_species: req.body.type,
       longitude: req.body.longitude,
-      latitude: req.body.latiitude,
-      hostile: req.body.hostile,
+      latitude: req.body.latitude,
+      hostile: true,
       foundByUser: req.body.foundByUser,
       note: req.body.note,
-      picture: fileName
+      picture: fileStoredPath
     })
       .then(() => {
         res.redirect(307, "/members");

@@ -29,21 +29,21 @@
 
   <div class="grid">
     <div class="container-adding-info">
-      <form class="add-observation" action="/upload" method="POST">
+      <form class="add-observation" action="/upload" method="POST" enctype="multipart/form-data">
         <label for="animal-type">Type of Animal:</label>
-        <input id="animal-type" name="animal-type">
+        <input id="animal-type" name="type">
 
         <label for="animal-lng">Longitude Found:</label>
-        <input id="animal-lng" name="animal-lng">
+        <input id="animal-lng" name="longitude">
 
         <label for="animal-lat">Latitude Found:</label>
-        <input id="animal-lat" name="animal-lat">
+        <input id="animal-lat" name="latitude">
 
         <label for="animal-note">Notes:</label>
-        <input type="textarea" id="animal-note" name="animal-note">
+        <input type="textarea" id="animal-note" name="note">
 
         <label for="animal-pic">Picture:</label>
-        <input type="file" name="animal-pic" id="animal-pic">
+        <input type="file" name="picture" id="animal-pic">
 
         <button type="submit" id="create-observation" class="btn btn-default">Create an Observation</button>
       </form>
