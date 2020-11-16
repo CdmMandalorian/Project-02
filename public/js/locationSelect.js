@@ -36,13 +36,17 @@ $(document).ready(() => {
       .setLngLat([-117, 39])
       .addTo(map);
 
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
+
     // Add geolocate control to the map.
     map.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true
         },
-        trackUserLocation: true
+        trackUserLocation: true,
+        showAccuracyCircle: false
       })
     );
 

@@ -4,8 +4,11 @@ const passport = require("../config/passport");
 const multer = require("multer");
 const uuid = require("uuid").v4;
 const path = require("path")
+// Requiring our custom middleware for checking if a user is logged in
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 let fileStoredPath = ``;
+let usersAnimals = [];
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -47,6 +50,22 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/account", isAuthenticated, async (req, res) => {
+    const { userName } = req.user;
+    const currentAnimals = await db.Animal.findAll()
+    const currentAnimalArray = []
+    currentAnimals.forEach(animal => currentAnimalArray.push(animal.dataValues));
+    currentAnimalArray.forEach(animal => {
+      if(animal.foundByUser === userName) { usersAnimals.push(animal) }
+    });
+    var hbsObject = {
+      animal: usersAnimals,
+      user: req.user,
+    };
+    usersAnimals = []
+    res.render("account", hbsObject);
+  });
+
   app.post("/upload", upload.single("picture"), (req, res) => {
       db.Animal.create({
         animal_species: req.body.type,
@@ -63,6 +82,11 @@ module.exports = function(app) {
         .catch(err => {
           res.status(401).json(err);
         });
+  });
+
+  app.get("/members", isAuthenticated, (req, res) => {
+    
+    res.render("members", array);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -85,7 +109,6 @@ module.exports = function(app) {
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
-    sessionStorage.clear();
     res.redirect("/");
   });
 
