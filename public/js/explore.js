@@ -8,6 +8,7 @@ $.get("/api/animals").then(data => {
     };
 
     var uploadFileName = [];
+    const animalArray = [];
 
     var map = new mapboxgl.Map({
         container: 'map',
@@ -15,6 +16,8 @@ $.get("/api/animals").then(data => {
         center: [-117, 39],
         zoom: 9
     });
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
 
     // Add geolocate control to the map.
     map.addControl(
@@ -22,22 +25,29 @@ $.get("/api/animals").then(data => {
             positionOptions: {
             enableHighAccuracy: true
             },
-            trackUserLocation: true
+            trackUserLocation: true,
+            showAccuracyCircle: false,
+            showUserLocation: false
         })
     );
 
     data.forEach(animal => {
+        const animalCreated = animal.createdAt;
+        date = new Date(animalCreated);
+        entireDateString = date.toDateString()
+
         let newFeature = {
             'type': 'Feature',
             'properties': {
-                'message': `${animal.animal_species}\n${animal.note}\nFound by: ${animal.foundByUser}`,
-                'iconSize': [20, 20]
+                'message': `${animal.animal_species}\n${animal.note}\nFound by: ${animal.foundByUser}\nCreated: ${entireDateString}`,
+                'iconSize': [25, 25]
             },
             'geometry': {
                 'type': 'Point',
                 'coordinates': [animal.longitude, animal.latitude]
                 }
         }
+        animalArray.push(animal)
         geojson.features.push(newFeature)
         uploadFileName.push(animal.picture)
     });
@@ -48,12 +58,23 @@ $.get("/api/animals").then(data => {
         el.style.backgroundImage = `url("./img/pin.png")`;
         el.style.width = geojson.features[i].properties.iconSize[0] + 'px';
         el.style.height = geojson.features[i].properties.iconSize[1] + 'px'
-        el.addEventListener('click', function () {
-            window.alert(geojson.features[i].properties.message);
-        });
+
+        const animalCreated = animalArray[i].createdAt;
+        date = new Date(animalCreated);
+        entireDateString = date.toDateString()
+
+        const createHTML = `
+        <div class="animal_popup">
+            <h1>${animalArray[i].animal_species}</h1>
+            <p>${animalArray[i].note}</p>
+            <p>Found by: ${animalArray[i].foundByUser}</p>
+            <p>Created: ${entireDateString}</p>
+            <img src="/img/uploads/${animalArray[i].picture}" >
+        </div>`
 
         new mapboxgl.Marker(el)
         .setLngLat(geojson.features[i].geometry.coordinates)
+        .setPopup(new mapboxgl.Popup().setHTML(createHTML))
         .addTo(map);
     }
 });
