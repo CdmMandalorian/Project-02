@@ -13,8 +13,9 @@ body{
   color: black;
 }
 
-h1 {
+h1, h3 {
   font-family: 'Philosopher', sans-serif;
+  text-align: center;
 }
 
 p {
@@ -24,10 +25,20 @@ p {
 h2 {
   font-family: 'Poppins', sans-serif;
   color: black;
+  text-align: center;
 }
 
-a {
-  padding-left: 7%;
+#nav-text {
+  width: 100%;
+}
+
+#here {
+  color: rgb(143, 67, 83);
+  font-size: 24px;
+}
+#here:hover {
+  color: rgb(250, 246, 246);
+  font-size: 26px;
 }
 
 span.form-inline.my-2.my-lg-0 {
@@ -39,6 +50,11 @@ a.nav-link.active {
 
 div.navbar-nav {
   width: 300px;
+}
+
+#redirect-links{
+  position: absolute;
+  right: 0px;
 }
 
 #footer {
