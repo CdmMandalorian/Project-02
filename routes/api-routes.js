@@ -85,8 +85,20 @@ module.exports = function(app) {
   });
 
   app.get("/members", isAuthenticated, (req, res) => {
-    
-    res.render("members", array);
+    const recentObservations = [];
+    db.Animal.findAll({
+      limit: 5,
+      order: [['createdAt', 'DESC']]
+    }).then(function (results){
+      results.forEach(animal => {
+        recentObservations.push(animal.dataValues);
+      });
+      var hbsObject = {
+        animal: recentObservations,
+      };
+      res.render("members", hbsObject);
+    })
+
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
