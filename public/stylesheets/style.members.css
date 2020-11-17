@@ -124,6 +124,7 @@ ul.user-posted-list {
   right: 0px;
   font-family: 'Poppins', sans-serif;
   margin-top: 2%;
+  margin-right: 2%;
 }
 
 .sideContainer {
@@ -137,3 +138,4 @@ ul.user-posted-list {
 ul.user-posted-list#h1 {
   font-size: 52px;
 }
+
