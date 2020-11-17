@@ -42,9 +42,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.render("members.handlebars");
-  });
+  // app.get("/members", isAuthenticated, (req, res) => {
+  //   res.render("members.handlebars");
+  // });
   app.post("/members", isAuthenticated, (req, res) => {
     res.render("members.handlebars");
   });

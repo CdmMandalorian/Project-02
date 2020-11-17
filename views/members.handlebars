@@ -35,6 +35,16 @@
         <button id="update">Update Other Incomplete Observations</button>
     </div>
 
+    <ul class="user-posted-list">
+        <h1>10 Most Recent Posts</h1>
+        {{#each animal}}
+            <div>
+                <h3>{{ animal_species }}</h3>
+                <h5>{{note}}</h5>
+            </div>
+        {{/each}}
+    </ul>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>
 </body>
