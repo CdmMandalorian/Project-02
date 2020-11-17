@@ -16,34 +16,43 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3"></div>
-                        <h2>Welcome <span class="member-name"></span></h2>
-                    </div>
-                    <div class="col-md-1 col-md-offset-3">
-                        <a class="navbar-brand" href="/logout">Logout</a>
-                    </div>
+
+                    <h2>Welcome  <span class="member-name"></span></h2>
+                    
+                    <a class="navbar-brand" href="/logout" style="margin-left:275%">Logout</a>
+                    
+
                 </div>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <button id="create-obs">Create New Observation</button>
-        <button id="search-all">Search All Observations in Your Area</button>
+        <button id="create-obs">Create New Observation </button>
+
         <button id="my-account">My Account</button>
         <button id="explore">Explore</button>
-        <button id="update">Update Other Incomplete Observations</button>
     </div>
 
-    <ul class="user-posted-list">
-        <h1>10 Most Recent Posts</h1>
-        {{#each animal}}
-            <div>
-                <h3>{{ animal_species }}</h3>
-                <h5>{{note}}</h5>
-            </div>
-        {{/each}}
-    </ul>
+    <div class="container">
+        <div class="flex-grid">
+            <section class="col main">
+                <ul class="user-posted-list"<h1>10 Most Recent Posts</h1>
+                    <div class="grid"></div>
+                    {{#each animal}}
+                    <div class="grid-item box">
+                        <h3>{{ animal_species }}</h3>
+                        <p>Longitude: {{ longitude }}</p>
+                        <p>Latitude: {{ latitude }}</p>
+                        <p>Hostile: {{ hostile }}</p>
+                        <h4>Notes: {{ note }}</h4>
+                    </div>
+                    {{/each}}
+                </ul>
+
+            </section>
+        </div>
+    </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/members.js"></script>

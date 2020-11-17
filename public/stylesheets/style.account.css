@@ -47,3 +47,21 @@ div.navbar-nav {
   width: 100%;
   text-align: center;
 }
+
+textarea.whiteboard {
+  resize: none;
+  background-color: white;
+  opacity: .75;
+  border: none;
+  height: 50px;
+  width: 500px;
+  text-align: center;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.unselected {
+  user-select: none;
+}
