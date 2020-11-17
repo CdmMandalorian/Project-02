@@ -4,6 +4,7 @@ $.get("/api/user_data").then(data => {
   const createBtn = $("#create-obs");
   const accountBtn = $("#my-account");
   const exploreBtn = $("#explore");
+  const usersAnimals = []
   //const searchAllBtn = $("#search-all");
 
   createBtn.on("click", () => {

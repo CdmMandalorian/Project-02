@@ -1,0 +1,106 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.navbar {
+  border-bottom: 4px solid #8d736b;
+  background-color: lightsteelblue;
+}
+
+body{
+  background-color: #49936a;
+  color: black;
+}
+
+.container-map{
+  position: fixed;
+  right: 0px;
+  grid-row: 1;
+  grid-column: 2 / 3;
+}
+
+#map{ 
+  width: 70vw;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 200px auto auto;
+  grid-gap: 1em;
+}
+
+.coordinates {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 18px;
+  border-radius: 3px;
+  display: none;
+  }
+  
+  .container-adding-info{
+    /* margin-left: 25%; */
+    padding-left: 50px;
+    justify-content: center;
+    grid-row: 1;
+    grid-column: 1;
+  }
+  
+  input {
+    width: 100%;
+  }
+  
+  #animal-note{
+    /* width: 100%; */
+    height: 150px;
+  
+  }
+  .about{
+    grid-area: footer;
+  }
+
+h1 {
+  font-family: 'Philosopher', sans-serif;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+a {
+  padding-left: 7%;
+}
+
+span.form-inline.my-2.my-lg-0 {
+  float: inline-end;
+}
+a.nav-link.active {
+  padding-left: 10%;
+}
+
+div.navbar-nav {
+  width: 300px;
+}
+
+#footer {
+  position: sticky;
+  font-family: 'Philosopher', sans-serif;
+  width: 100%;
+  text-align: center;
+}
