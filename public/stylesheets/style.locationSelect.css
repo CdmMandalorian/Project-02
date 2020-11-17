@@ -151,4 +151,15 @@ a {
 #redirect-links{
   position: absolute;
   right: 0px;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 2%;
+
+}
+form.get-location {
+  height: 880px;
+  width: 1000px
+}
+
+form.add-observation {
+  font-family: 'Poppins', sans-serif;
 }

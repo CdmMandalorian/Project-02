@@ -81,6 +81,9 @@ input {
   right: 0px;
   grid-row: 1;
   grid-column: 2 / 3;
+  width: 1120px;
+  height: 940px;
+  margin-right: 7%;
 }
 
 .container-adding-info{
@@ -133,4 +136,12 @@ a {
 #redirect-links{
   position: absolute;
   right: 0px;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 2%;
+  margin-right: 2%;
+}
+
+div#map.mapboxgl-map {
+  width: 1200px;
+  height: 940px;
 }
