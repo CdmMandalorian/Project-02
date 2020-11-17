@@ -115,10 +115,6 @@ a {
   padding-left: 7%;
 }
 
-#user-name{
-  display: none;
-}
-
 #footer {
   position: fixed;
   font-family: 'Philosopher', sans-serif;
