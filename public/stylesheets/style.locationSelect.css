@@ -31,17 +31,17 @@ body{
 }
 
 .coordinates {
-background: rgba(0, 0, 0, 0.5);
-color: #fff;
-position: absolute;
-bottom: 40px;
-left: 10px;
-padding: 5px 10px;
-margin: 0;
-font-size: 11px;
-line-height: 18px;
-border-radius: 3px;
-display: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 18px;
+  border-radius: 3px;
+  display: none;
 }
 
 .container-adding-info{
@@ -61,6 +61,20 @@ input {
 .animal_popup img {
   width: 150px;
   height: 150px;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+  background-color: #337ab7;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    font-family: 'Poppins', sans-serif;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
 }
 
 #user-name{
