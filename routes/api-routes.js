@@ -98,7 +98,6 @@ module.exports = function(app) {
       };
       res.render("members", hbsObject);
     })
-
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -122,6 +121,22 @@ module.exports = function(app) {
   app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
+  });
+
+  app.post("/api/user_data/change_email", async (req, res) => {
+    const { oldInput } = req.body
+    const { newInput } = req.body
+    let user = await db.User.findOne({ where: { email: oldInput }})
+    user.email = newInput
+    await user.save()
+  });
+
+  app.post("/api/user_data/change_username", async (req, res) => {
+    const { oldInput } = req.body
+    const { newInput } = req.body
+    let user = await db.User.findOne({ where: { email: oldInput }})
+    user.email = newInput
+    await user.save()
   });
 
   // Route for getting some data about our user to be used client side
