@@ -8,20 +8,17 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/explore.css" rel="stylesheet">
+  <link href="stylesheets/style.explore.css" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3"></div>
-            <h2>Welcome <span class="member-name"></span></h2>
-          </div>
-          <div class="col-md-1 col-md-offset-3">
-            <a class="navbar-brand" href="/logout">Logout</a>
-          </div>
+      <div class="row">
+        <div id="redirect-links">
+          <a class="navbar-brand" href="/">Home</a>
+          <a class="navbar-brand" href="/members">Members</a>
+          <a class="navbar-brand" href="/logout">Logout</a>
         </div>
       </div>
     </div>

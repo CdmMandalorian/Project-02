@@ -42,22 +42,11 @@ a {
   padding-left: 7%;
 }
 
-a.navbar-brand {
-  position: sticky;
-  font-size: 20px;
-  line-height: 70px;
-  
-}
-
 span.form-inline.my-2.my-lg-0 {
   float: inline-end;
 }
 a.nav-link.active {
   padding-left: 10%;
-}
-
-div.navbar-nav {
-  width: 300px;
 }
 
 #footer {
@@ -66,7 +55,6 @@ div.navbar-nav {
   width: 100%;
   text-align: center;
 }
-
 
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
   background-color: #337ab7;
@@ -80,11 +68,6 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     border-bottom-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
-}
-
-.container {
-  display: inline-grid;
-  width: 15%;
 }
 
 ul.user-posted-list {
@@ -102,6 +85,8 @@ ul.user-posted-list {
   margin: auto;
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
+  display: inline-grid;
+  width: 15%;
 }
 
 .flex-grid {
@@ -132,4 +117,13 @@ ul.user-posted-list {
 
 #text {
   text-align: center;
+}
+
+.member-name{
+  padding-left: 20px;
+}
+
+#redirect-links{
+  position: absolute;
+  right: 0px;
 }

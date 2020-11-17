@@ -120,7 +120,7 @@ module.exports = function(app) {
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.redirect("/login");
   });
 
   app.post("/api/user_data/change_email", async (req, res) => {
@@ -135,7 +135,7 @@ module.exports = function(app) {
     const { oldInput } = req.body
     const { newInput } = req.body
     let user = await db.User.findOne({ where: { email: oldInput }})
-    user.email = newInput
+    user.userName = newInput
     await user.save()
   });
 
