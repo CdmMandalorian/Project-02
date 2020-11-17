@@ -3,7 +3,8 @@
     "username": "bce695cd9fe69c",
     "password": "24b755af",
     "database": "heroku_1b89e7c9c7817fa",
-    "host": "us-cdbr-east-02.cleardb.com"
+    "host": "us-cdbr-east-02.cleardb.com",
+    "dialect": "cleardb"
   },
   "test": {
     "username": "root",
