@@ -86,7 +86,7 @@ module.exports = function(app) {
       var hbsObject = {
         animal: recentObservations,
       };
-      res.render("members", hbsObject);
+      res.render("members.handlebars", hbsObject);
     })
   });
 
@@ -127,9 +127,9 @@ module.exports = function(app) {
 
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
-      res.json({});
+      return res.json({});
     } else {
-      res.json({
+      return res.json({
         userName: req.user.userName,
         email: req.user.email,
         id: req.user.id

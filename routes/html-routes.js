@@ -6,17 +6,17 @@ module.exports = function(app) {
   });
 
   app.get("/login", (req, res) => {
-    if (req.user) {
-      res.redirect("/members");
-    }
+    if (req.user) { return res.redirect("/members") }
     res.render("login.handlebars");
   });
 
   app.get("/signup", (req, res) => {
-    if (req.user) {
-      res.redirect("/members");
-    }
+    if (req.user) { return res.redirect("/members") }
     res.render("signup.handlebars");
+  });
+
+  app.post("/members", isAuthenticated, (req, res) => {
+    res.redirect("/members");
   });
 
   app.get("/locationSelect", isAuthenticated, (req, res) => {
