@@ -1,42 +1,46 @@
 $.get("/api/user_data").then(data => {
+    console.log(data)
     const memberName = data.userName;
     const emailChangeBtn = $("#change-email-button");
     const usernameChangeBtn = $("#change-username-button");
     const emailChangeTextArea = document.getElementById('change-email');
     const usernameChangeTextArea = document.getElementById('change-username');
-    let oldEmail = emailChangeTextArea.innerHTML;
-    let oldUsername = usernameChangeTextArea.innerHTML;
+    let oldEmail = data.email;
+
     $(".member-name").text(memberName);
     emailChangeTextArea.setAttribute('readonly', "readonly")
+    usernameChangeTextArea.setAttribute('readonly', "readonly")
 
-    function verifyRedOnlyAttr(textarea, btn, info){
+    function verifyRedOnlyAttrUsername(textarea, btn, info){
         if(!textarea.attributes.readonly){
             textarea.setAttribute('readonly', "readonly")
             btn.text(`Change ${info}`);
-            let newInput = "";
-            let oldInput;
-            let updatedEmail;
-            if(info === "Email") {
-                if(!oldInput){
-                    oldInput = oldEmail;
-                }
-               newInput = emailChangeTextArea.value; 
-            } 
-            if(info === "Username") {
-                if(!oldInput){
-                    oldInput = oldUsername;
-                }
-               newInput = usernameChangeTextArea.value; 
-            } 
+            let newInput = textarea.value;
+            console.log(memberName, oldEmail, newInput)
+            $.post("/api/user_data/change_username",{
+                userName: memberName,
+                oldInput: oldEmail,
+                newInput: newInput
+              })
+            return window.location.replace("/logout");
+        } else {
+            textarea.removeAttribute('readonly')
+            btn.text(`Set ${info}`);
+        }   
+    }
+    function verifyRedOnlyAttrEmail(textarea, btn, info){
+        if(!textarea.attributes.readonly){
+            textarea.setAttribute('readonly', "readonly")
+            btn.text(`Change ${info}`);
+            let newInput = textarea.value;
+            console.log(memberName, oldEmail, newInput)
             $.post("/api/user_data/change_email",{
                 userName: memberName,
-                oldInput: oldInput,
-                newInput: newInput,
-                email: 
-              }).then( function( data ) {
-
-                oldInput = newInput;
-            });
+                oldInput: oldEmail,
+                newInput: newInput
+            })
+            oldEmail = newInput;
+            return window.location.replace("/logout");
         } else {
             textarea.removeAttribute('readonly')
             btn.text(`Set ${info}`);
@@ -44,11 +48,11 @@ $.get("/api/user_data").then(data => {
     }
     
     emailChangeBtn.on('click', () => {
-        verifyRedOnlyAttr(emailChangeTextArea, emailChangeBtn, "Email"); 
+        verifyRedOnlyAttrEmail(emailChangeTextArea, emailChangeBtn, "Email"); 
     });
 
     usernameChangeBtn.on('click', () => {
-        verifyRedOnlyAttr(usernameChangeTextArea, usernameChangeBtn, "Username");       
+        verifyRedOnlyAttrUsername(usernameChangeTextArea, usernameChangeBtn, "Username");       
     });
 });
   

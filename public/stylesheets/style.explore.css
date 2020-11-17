@@ -1,0 +1,136 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+body{
+  background-color: #49936a;
+  color: black;
+}
+
+.container-map{
+  position: fixed;
+  right: 0px;
+  grid-row: 1;
+  grid-column: 2 / 3;
+}
+
+#map{ 
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.grid{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 200px auto auto;
+  grid-gap: 1em;
+}
+
+.coordinates {
+background: rgba(0, 0, 0, 0.5);
+color: #fff;
+position: absolute;
+bottom: 40px;
+left: 10px;
+padding: 5px 10px;
+margin: 0;
+font-size: 11px;
+line-height: 18px;
+border-radius: 3px;
+display: none;
+}
+
+.container-adding-info{
+  justify-content: center;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+input {
+  width: 100%;
+}
+
+#animal-note{
+  height: 150px;
+}
+
+.animal_popup img {
+  width: 150px;
+  height: 150px;
+}
+
+.mapboxgl-popup-close-button{
+  background-color: brown;
+  color: white;
+}
+.mapboxgl-popup-close-button:hover{
+  background-color: black;
+  color: white;
+}
+.navbar {
+  border-bottom: 4px solid #8d736b;
+  background-color: lightsteelblue;
+}
+
+.container-map{
+  position: fixed;
+  right: 0px;
+  grid-row: 1;
+  grid-column: 2 / 3;
+}
+
+.container-adding-info{
+  padding-left: 50px;
+  justify-content: center;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+input {
+  width: 100%;
+}
+
+.about{
+  grid-area: footer;
+}
+
+h1 {
+  font-family: 'Philosopher', sans-serif;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+a {
+  padding-left: 7%;
+}
+
+#footer {
+  position: fixed;
+  font-family: 'Philosopher', sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+.row{
+  width:100%;
+}
+
+.member-name{
+  padding-left: 20px;
+}
+
+#redirect-links{
+  position: absolute;
+  right: 0px;
+}
