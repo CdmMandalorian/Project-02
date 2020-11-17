@@ -63,6 +63,11 @@ a.nav-link.active {
 
 div.navbar-nav {
   width: 300px;
+  margin: 20px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {

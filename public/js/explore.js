@@ -1,67 +1,81 @@
-mapboxgl.accessToken =
-"pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
-
-var geojson = {
-    'type': 'FeatureCollection',
-    'features': [{
-                'type': 'Feature',
-                'properties': {
-                    'message': 'Foo',
-                    'iconSize': [25, 25]
-                },
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': [-117, 39]
-                    }
-                }]
-};
-
 $.get("/api/animals").then(data => {
+    mapboxgl.accessToken =
+    "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
+
+    var geojson = {
+        'type': 'FeatureCollection',
+        'features': []
+    };
+
+    var uploadFileName = [];
+    const animalArray = [];
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-117, 39],
+        zoom: 9
+    });
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-left');
+
+    // Add geolocate control to the map.
+    map.addControl(
+        new mapboxgl.GeolocateControl({
+            positionOptions: {
+            enableHighAccuracy: true
+            },
+            trackUserLocation: true,
+            showAccuracyCircle: false,
+            showUserLocation: false
+        })
+    );
+
     data.forEach(animal => {
-        console.log(animal);
+        const animalCreated = animal.createdAt;
+        date = new Date(animalCreated);
+        entireDateString = date.toDateString()
+
         let newFeature = {
             'type': 'Feature',
             'properties': {
-                'message': 'Foo',
-                'iconSize': [20, 20]
+                'message': `${animal.animal_species}\n${animal.note}\nFound by: ${animal.foundByUser}\nCreated: ${entireDateString}`,
+                'iconSize': [25, 25]
             },
             'geometry': {
                 'type': 'Point',
                 'coordinates': [animal.longitude, animal.latitude]
                 }
-            }
+        }
+        animalArray.push(animal)
         geojson.features.push(newFeature)
+        uploadFileName.push(animal.picture)
     });
 
+    for (let i = 0; i < uploadFileName.length; i++){
+        const el = document.createElement('div');
+        el.className = 'marker';
+        el.style.backgroundImage = `url("./img/pin.png")`;
+        el.style.width = geojson.features[i].properties.iconSize[0] + 'px';
+        el.style.height = geojson.features[i].properties.iconSize[1] + 'px'
+
+        const animalCreated = animalArray[i].createdAt;
+        date = new Date(animalCreated);
+        entireDateString = date.toDateString()
+
+        const createHTML = `
+        <div class="animal_popup">
+            <h1>${animalArray[i].animal_species}</h1>
+            <p>${animalArray[i].note}</p>
+            <p>Found by: ${animalArray[i].foundByUser}</p>
+            <p>Created: ${entireDateString}</p>
+            <img src="/img/uploads/${animalArray[i].picture}" >
+        </div>`
+
+        new mapboxgl.Marker(el)
+        .setLngLat(geojson.features[i].geometry.coordinates)
+        .setPopup(new mapboxgl.Popup().setHTML(createHTML))
+        .addTo(map);
+    }
 });
 
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-117, 39],
-            zoom: 9
-        });
-         
-        // add markers to map
-        geojson.features.forEach(function (marker) {
-            // create a DOM element for the marker
-            var el = document.createElement('div');
-            el.className = 'marker';
-            el.style.backgroundImage =
-            'url(https://placekitten.com/g/' +
-            marker.properties.iconSize.join('/') +
-            '/)';
-            el.style.width = marker.properties.iconSize[0] + 'px';
-            el.style.height = marker.properties.iconSize[1] + 'px';
-            
-            el.addEventListener('click', function () {
-            window.alert(marker.properties.message);
-            });
-            
-            // add marker to map
-            new mapboxgl.Marker(el)
-            .setLngLat(marker.geometry.coordinates)
-            .addTo(map);
-        });
-//         console.log(geojson)
-// });

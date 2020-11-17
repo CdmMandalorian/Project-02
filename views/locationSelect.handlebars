@@ -8,7 +8,7 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="stylesheets/style.locationSelect.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,9 +17,12 @@
       <div class="navbar-header">
         <div class="row">
           <div class="col-md-6 col-md-offset-3"></div>
-            <h2>Welcome <span class="member-name"></span></h2>
+            <h2>Welcome <span class="member-name" name="member_name"></span></h2>
           </div>
           <div class="col-md-1 col-md-offset-3">
+            <a class="navbar-brand" href="/">Home</a>
+          </div>
+          <div class="col-md-3 col-md-offset-3">
             <a class="navbar-brand" href="/logout">Logout</a>
           </div>
         </div>
@@ -29,21 +32,23 @@
 
   <div class="grid">
     <div class="container-adding-info">
-      <form class="add-observation" action="/upload" method="POST">
+      <form class="add-observation" action="/upload" method="POST" enctype="multipart/form-data">
         <label for="animal-type">Type of Animal:</label>
-        <input id="animal-type" name="animal-type">
+        <input id="animal-type" name="type">
 
         <label for="animal-lng">Longitude Found:</label>
-        <input id="animal-lng" name="animal-lng">
+        <input id="animal-lng" name="longitude">
 
         <label for="animal-lat">Latitude Found:</label>
-        <input id="animal-lat" name="animal-lat">
+        <input id="animal-lat" name="latitude">
 
         <label for="animal-note">Notes:</label>
-        <input type="textarea" id="animal-note" name="animal-note">
+        <input type="textarea" id="animal-note" name="note">
 
         <label for="animal-pic">Picture:</label>
-        <input type="file" name="animal-pic" id="animal-pic">
+        <input type="file" name="picture" id="animal-pic">
+
+        <input type="text" name="username" id="user-name">
 
         <button type="submit" id="create-observation" class="btn btn-default">Create an Observation</button>
       </form>

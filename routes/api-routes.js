@@ -4,16 +4,22 @@ const passport = require("../config/passport");
 const multer = require("multer");
 const uuid = require("uuid").v4;
 const path = require("path")
+// Requiring our custom middleware for checking if a user is logged in
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
+let fileStoredPath = ``;
+let usersAnimals = [];
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads");
+    cb(null, "./public/img/uploads");
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname)
     const id = uuid();
-    const filePath = `uploads/${id}${ext}`;
-    cb(null, filePath);
+    fileStoredPath = `${id}${ext}`;
+    console.log(fileStoredPath)
+    cb(null, fileStoredPath);
   }
 });
 const upload = multer({ storage });
@@ -44,26 +50,55 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/upload", upload.single("animal-pic"), (req, res) => {});
+  app.get("/account", isAuthenticated, async (req, res) => {
+    const { userName } = req.user;
+    const currentAnimals = await db.Animal.findAll()
+    const currentAnimalArray = []
+    currentAnimals.forEach(animal => currentAnimalArray.push(animal.dataValues));
+    currentAnimalArray.forEach(animal => {
+      if(animal.foundByUser === userName) { usersAnimals.push(animal) }
+    });
+    var hbsObject = {
+      animal: usersAnimals,
+      user: req.user,
+    };
+    usersAnimals = []
+    res.render("account", hbsObject);
+  });
 
-  app.post("/api/animals", upload.single("animal-pic"), (req, res) => {
-    const fileName = req.file != null ? req.file.filename : null;
-    console.log(fileName)
-    db.Animal.create({
-      animal_species: req.body.animal_species,
-      longitude: req.body.longitude,
-      latitude: req.body.latiitude,
-      hostile: req.body.hostile,
-      foundByUser: req.body.foundByUser,
-      note: req.body.note,
-      picture: fileName
-    })
-      .then(() => {
-        res.redirect(307, "/members");
+  app.post("/upload", upload.single("picture"), (req, res) => {
+      db.Animal.create({
+        animal_species: req.body.type,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude,
+        hostile: true,
+        foundByUser: req.body.username,
+        note: req.body.note,
+        picture: fileStoredPath
       })
-      .catch(err => {
-        res.status(401).json(err);
+        .then(() => {
+          res.redirect(307, "/members");
+        })
+        .catch(err => {
+          res.status(401).json(err);
+        });
+  });
+
+  app.get("/members", isAuthenticated, (req, res) => {
+    const recentObservations = [];
+    db.Animal.findAll({
+      limit: 5,
+      order: [['createdAt', 'DESC']]
+    }).then(function (results){
+      results.forEach(animal => {
+        recentObservations.push(animal.dataValues);
       });
+      var hbsObject = {
+        animal: recentObservations,
+      };
+      res.render("members", hbsObject);
+    })
+
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

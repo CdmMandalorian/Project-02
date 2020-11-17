@@ -4,12 +4,14 @@ const path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
+
+
 module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
-    if (req.user) {
+    /*if (req.user) {
       res.redirect("/");
-    }
+    }*/
     res.render("index.handlebars")
   });
 
@@ -19,6 +21,14 @@ module.exports = function(app) {
       res.redirect("/members");
     }
     res.render("login.handlebars");
+  });
+
+  app.get("/signup", (req, res) => {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    res.render("signup.handlebars");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -32,12 +42,11 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  app.get("/members", isAuthenticated, (req, res) => {
-<<<<<<< HEAD
-    res.render("animal.handlebars");
-=======
+  // app.get("/members", isAuthenticated, (req, res) => {
+  //   res.render("members.handlebars");
+  // });
+  app.post("/members", isAuthenticated, (req, res) => {
     res.render("members.handlebars");
->>>>>>> 7ef61e2d21c2dbf941fdde50550b9bdfccad779e
   });
 
   app.get("/locationSelect", isAuthenticated, (req, res) => {
