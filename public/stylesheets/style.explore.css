@@ -137,8 +137,8 @@ a {
   position: absolute;
   right: 0px;
   font-family: 'Poppins', sans-serif;
-  margin-top: 1%;
-  margin-right: 0%;
+  margin-top: 2%;
+  margin-right: 2%;
 }
 
 div#map.mapboxgl-map {
