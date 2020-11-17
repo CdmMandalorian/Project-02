@@ -15,6 +15,7 @@ $.get("/api/user_data").then(data => {
             btn.text(`Change ${info}`);
             let newInput = "";
             let oldInput;
+            let updatedEmail;
             if(info === "Email") {
                 if(!oldInput){
                     oldInput = oldEmail;
@@ -30,7 +31,8 @@ $.get("/api/user_data").then(data => {
             $.post("/api/user_data/change_email",{
                 userName: memberName,
                 oldInput: oldInput,
-                newInput: newInput
+                newInput: newInput,
+                email: 
               }).then( function( data ) {
 
                 oldInput = newInput;
