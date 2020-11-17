@@ -1,5 +1,4 @@
 $.get("/api/user_data").then(data => {
-    console.log(data)
     const memberName = data.userName;
     const emailChangeBtn = $("#change-email-button");
     const usernameChangeBtn = $("#change-username-button");
@@ -16,7 +15,6 @@ $.get("/api/user_data").then(data => {
             textarea.setAttribute('readonly', "readonly")
             btn.text(`Change ${info}`);
             let newInput = textarea.value;
-            console.log(memberName, oldEmail, newInput)
             $.post("/api/user_data/change_username",{
                 userName: memberName,
                 oldInput: oldEmail,
@@ -33,7 +31,6 @@ $.get("/api/user_data").then(data => {
             textarea.setAttribute('readonly', "readonly")
             btn.text(`Change ${info}`);
             let newInput = textarea.value;
-            console.log(memberName, oldEmail, newInput)
             $.post("/api/user_data/change_email",{
                 userName: memberName,
                 oldInput: oldEmail,
