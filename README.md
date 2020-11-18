@@ -26,7 +26,7 @@ The Explore page will allow you to explore the map and find any observations tha
 <a name="visuals"></a>
 ## Visuals
 <br>
-<img src="">
+<img src="/img/README_Images/'HomePage.PNG'">
 <br>   
 
 <a name="used-apps"></a>
@@ -46,6 +46,7 @@ Future updates include:
 Search and Filter Pages
 Update incomplete Observations
 About the Finder Page
+Resource Page (Helpful Phone Numbers and Links)
 
 
 <a name="authors"></a>
