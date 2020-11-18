@@ -26,7 +26,7 @@ The Explore page will allow you to explore the map and find any observations tha
 <a name="visuals"></a>
 ## Visuals
 <br>
-<img src="./img/README_Images/'Home Page.PNG'">
+<img src="/img/README_Images/HomePage.PNG">
 <br>   
 
 <a name="used-apps"></a>
