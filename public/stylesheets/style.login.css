@@ -60,6 +60,7 @@ div.navbar-nav {
   font-family: 'Poppins', sans-serif;
   margin-top: 2%;
   margin-right: -1%;
+  margin-right: 30px;
 }
 
 #footer {
@@ -68,4 +69,3 @@ div.navbar-nav {
   width: 100%;
   text-align: center;
 }
-
