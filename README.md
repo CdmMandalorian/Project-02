@@ -65,7 +65,8 @@ Heroku/ClearDB
 
 <a name="road-map"></a>
 ## Road Map
-Future updates include:
+Here are some future updates we plan to add with future updates:
+<br>
 <br>
 Search and Filter Pages
 <br>
