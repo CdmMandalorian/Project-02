@@ -5,7 +5,7 @@
 2. [ Usage ](#usage)
 3. [ Features ](#features)
 4. [ Visuals ](#visuals)
-5. [ API/Framework Used ](#used-apps)
+5. [ Tools ](#tools)
 6. [ Road Map ](#road-map)
 7. [ Authors ](#authors)
 8. [ License ](#lic)
@@ -46,8 +46,8 @@ The Explore page will allow you to explore the map and find any observations tha
 <img src="/public/img/README_Images/AccountPage.PNG">
 <br>   
 
-<a name="used-apps"></a>
-## API/Framework Used
+<a name="tools"></a>
+## Tools
 Express
 <br>
 Handlebars
