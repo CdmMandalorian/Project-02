@@ -71,6 +71,7 @@ input {
   background-color: black;
   color: white;
 }
+
 .navbar {
   border-bottom: 4px solid #8d736b;
   background-color: lightsteelblue;
@@ -81,9 +82,9 @@ input {
   right: 0px;
   grid-row: 1;
   grid-column: 2 / 3;
-  width: 1120px;
-  height: 940px;
-  margin-right: 7%;
+  width: 1240px;
+  height: 820px;
+  margin-right: 3%;
 }
 
 .container-adding-info{
@@ -137,11 +138,11 @@ a {
   position: absolute;
   right: 0px;
   font-family: 'Poppins', sans-serif;
-  margin-top: 2%;
-  margin-right: 2%;
+  margin-top: -2.5%;
+  margin-right: -1%;
 }
 
 div#map.mapboxgl-map {
   width: 1200px;
-  height: 940px;
+  height: 820px;
 }
