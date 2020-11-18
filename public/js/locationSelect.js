@@ -32,7 +32,7 @@ $(document).ready(() => {
     const marker = new mapboxgl.Marker({
       draggable: true
     })
-      .setLngLat([-117, 39])
+      .setLngLat([-117.325, 33.9738])
       .addTo(map);
 
     var nav = new mapboxgl.NavigationControl();

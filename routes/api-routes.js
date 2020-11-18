@@ -21,6 +21,15 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+// async function uploadFile(pictureEle){
+//   try{
+//     await upload.single(pictureEle)
+//   }
+//   catch{
+
+//   }
+// }
+
 module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
