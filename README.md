@@ -26,34 +26,47 @@ The Explore page will allow you to explore the map and find any observations tha
 <a name="visuals"></a>
 ## Visuals
 <br>
-<img src="/img/README_Images/HomePage.PNG">
+<img src="/public/img/README_Images/HomePage.PNG">
 <br>   
 
 <a name="used-apps"></a>
 ## API/Framework Used
 Express
+<br>
 Handlebars
+<br>
 Sequelize
+<br>
 Passport
+<br>
 Multer
+<br>
 UUID
+<br>
 Heroku/ClearDB
 
 
 <a name="road-map"></a>
 ## Road Map
 Future updates include:
+<br>
 Search and Filter Pages
+<br>
 Update incomplete Observations
+<br>
 About the Finder Page
+<br>
 Resource Page (Helpful Phone Numbers and Links)
 
 
 <a name="authors"></a>
 ## Authors
 Armando Galindo
+<br>
 Blake Brintle
+<br>
 Curtis Jackson
+<br>
 Patrick Tomas
 
 
