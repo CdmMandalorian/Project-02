@@ -125,6 +125,22 @@ ul.user-posted-list {
   padding-left: 20px;
 }
 
+.info-box{
+  width: 50%;
+  float: left;
+  margin-left: 25px;
+}
+
+.prev-post{
+  object-fit: cover;
+  height: 190px;
+  width: 20%;
+  float: right;
+  margin-right: 25px;
+  margin-top: 5px;
+  border: 5px solid black;
+}
+
 #redirect-links{
   position: absolute;
   right: 0px;
@@ -155,10 +171,16 @@ textarea.whiteboard {
   user-select: none;
 }
 
+ul.user-posted-list{
+  width: 100%;
+}
+
 ul.user-posted-list#h1 {
   font-size: 52px;
+  width: 100%;
 }
 
 div.grid-item.box {
-  width: 1000px;
+  width: 90%;
+  height: 200px;
 }

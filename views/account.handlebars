@@ -37,15 +37,21 @@
 
     <div class="previous-postsContainer">
         <div class="flex-grid">
-            <section class="col main"><h1>Previous Posts</h1>
+            <section class="main">
+                <h1>Previous Posts</h1>
                 <ul class="user-posted-list">
                     <div class="grid"></div>
                     {{#each animal}}
                         <div class="grid-item box">
-                            <h3>{{animal_species}}</h3>
-                            <h5>{{note}}</h5>
-                            <p>Longitude: {{ longitude }}</p>
-                            <p>Latitude: {{ latitude }}</p>
+                            <div class="info-box">
+                                <h3>{{animal_species}}</h3>
+                                <h5>{{note}}</h5>
+                                <p>Longitude: {{ longitude }}</p>
+                                <p>Latitude: {{ latitude }}</p>
+                            </div>
+                            <div class="prev-post-box">
+                                <img src="/img/uploads/{{picture}}" class="prev-post">
+                            </div>  
                         </div>
                     {{/each}}
                 </ul>
