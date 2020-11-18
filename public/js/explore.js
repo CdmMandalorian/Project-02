@@ -13,7 +13,7 @@ $.get("/api/animals").then(data => {
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-117, 39],
+        center: [-117.325, 33.9738],
         zoom: 9
     });
     var nav = new mapboxgl.NavigationControl();
