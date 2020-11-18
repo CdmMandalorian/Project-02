@@ -26,33 +26,64 @@ The Explore page will allow you to explore the map and find any observations tha
 <a name="visuals"></a>
 ## Visuals
 <br>
-<img src="">
+<h3>Home Page</h3>
+<img src="/public/img/README_Images/HomePage.PNG">
+<br>   
+<br>
+<h3>Members Page</h3>
+<img src="/public/img/README_Images/MembersPage.PNG">
+<br>   
+<br>
+<h3>Create Observation Page</h3>
+<img src="/public/img/README_Images/CreateObservationPage.PNG">
+<br>   
+<br>
+<h3>Explore Page</h3>
+<img src="/public/img/README_Images/ExplorePage.PNG">
+<br>   
+<br>
+<h3>Account Page</h3>
+<img src="/public/img/README_Images/AccountPage.PNG">
 <br>   
 
 <a name="used-apps"></a>
 ## API/Framework Used
 Express
+<br>
 Handlebars
+<br>
 Sequelize
+<br>
 Passport
+<br>
 Multer
+<br>
 UUID
+<br>
 Heroku/ClearDB
 
 
 <a name="road-map"></a>
 ## Road Map
 Future updates include:
+<br>
 Search and Filter Pages
+<br>
 Update incomplete Observations
+<br>
 About the Finder Page
+<br>
+Resource Page (Helpful Phone Numbers and Links)
 
 
 <a name="authors"></a>
 ## Authors
 Armando Galindo
+<br>
 Blake Brintle
+<br>
 Curtis Jackson
+<br>
 Patrick Tomas
 
 
