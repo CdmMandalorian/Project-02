@@ -139,3 +139,13 @@ ul.user-posted-list#h1 {
   font-size: 52px;
 }
 
+
+@media screen and (max-width: 1920px) {
+  #redirect-links{
+    margin-top: 1.5%;
+    margin-right: 1.5%;
+  }
+  div.grid-item.box{
+    width: 1500px;
+  }
+}
