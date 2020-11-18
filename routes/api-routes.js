@@ -77,7 +77,7 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     const recentObservations = [];
     db.Animal.findAll({
-      limit: 5,
+      limit: 10,
       order: [['createdAt', 'DESC']]
     }).then(function (results){
       results.forEach(animal => {
