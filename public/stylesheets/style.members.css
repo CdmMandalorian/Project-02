@@ -112,7 +112,7 @@ ul.user-posted-list {
 .grid-item {
   background-color: lightblue;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #49936a;
 }
 
 .member-name{
@@ -139,7 +139,6 @@ ul.user-posted-list#h1 {
   font-size: 52px;
 }
 
-
 @media screen and (max-width: 1920px) {
   #redirect-links{
     margin-top: 1.5%;
@@ -148,4 +147,32 @@ ul.user-posted-list#h1 {
   div.grid-item.box{
     width: 1500px;
   }
+}
+
+.info-box{
+  width: 50%;
+  float: left;
+  margin-left: 25px;
+}
+
+.prev-post{
+  object-fit: cover;
+  height: 190px;
+  width: 20%;
+  float: right;
+  margin-right: 25px;
+  margin-top: 5px;
+  border: 2.5px solid #49936a;
+}
+
+#redirect-links{
+  position: absolute;
+  right: 0px;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 2%;
+  margin-right: -1%;
+}
+
+div.grid-item.box {
+  height: 200px;
 }
