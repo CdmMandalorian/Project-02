@@ -57,22 +57,21 @@ module.exports = function(app) {
   });
 
   app.post("/upload", isAuthenticated, upload.single("picture"), async (req, res) => { 
-    
-    // await db.Animal.create({
-    //     animal_species: req.body.type,
-    //     longitude: req.body.longitude,
-    //     latitude: req.body.latitude,
-    //     hostile: true,
-    //     foundByUser: req.user.userName,
-    //     note: req.body.note,
-    //     picture: fileStoredPath
-    //   })
-    //     .then(() => {
-    //       res.redirect(307, "/members");
-    //     })
-    //     .catch(err => {
-    //       res.status(401).json(err);
-    //     });
+    await db.Animal.create({
+        animal_species: req.body.type,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude,
+        hostile: true,
+        foundByUser: req.user.userName,
+        note: req.body.note,
+        picture: fileStoredPath
+      })
+        .then(() => {
+          res.redirect(307, "/members");
+        })
+        .catch(err => {
+          res.status(401).json(err);
+        });
   });
 
   app.get("/members", isAuthenticated, (req, res) => {

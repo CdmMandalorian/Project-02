@@ -119,14 +119,6 @@ ul.user-posted-list {
   padding-left: 20px;
 }
 
-#redirect-links{
-  position: absolute;
-  right: 0px;
-  font-family: 'Poppins', sans-serif;
-  margin-top: 2%;
-  margin-right: -1%;
-}
-
 .sideContainer {
   margin: auto;
   font-family: 'Poppins', sans-serif;
@@ -137,16 +129,6 @@ ul.user-posted-list {
 
 ul.user-posted-list#h1 {
   font-size: 52px;
-}
-
-@media screen and (max-width: 1920px) {
-  #redirect-links{
-    margin-top: 1.5%;
-    margin-right: 1.5%;
-  }
-  div.grid-item.box{
-    width: 1500px;
-  }
 }
 
 .info-box{
@@ -169,10 +151,18 @@ ul.user-posted-list#h1 {
   position: absolute;
   right: 0px;
   font-family: 'Poppins', sans-serif;
-  margin-top: 2%;
-  margin-right: -1%;
 }
 
 div.grid-item.box {
   height: 200px;
+}
+
+@media screen and (max-width: 1920px) {
+  #redirect-links{
+    margin-top: 1.5%;
+    margin-right: 1.5%;
+  }
+  div.grid-item.box{
+    width: 1500px;
+  }
 }
