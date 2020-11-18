@@ -133,13 +133,6 @@ a {
   padding-left: 7%;
 }
 
-#footer {
-  position: sticky;
-  font-family: 'Philosopher', sans-serif;
-  width: 100%;
-  text-align: center;
-}
-
 .row{
   width:100%;
 }
@@ -174,4 +167,23 @@ form.add-observation {
     margin-right: 30%;
   }
   
+}
+
+@media only screen and (min-width: 992px) {
+  {
+
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  {
+
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  {
+
+  }
 }
