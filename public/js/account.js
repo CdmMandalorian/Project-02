@@ -52,4 +52,8 @@ $.get("/api/user_data").then(data => {
         verifyRedOnlyAttrUsername(usernameChangeTextArea, usernameChangeBtn, "Username");       
     });
 });
+
+$.get("/api/previous_post").then(data => {
+    console.log(data)
+})
   

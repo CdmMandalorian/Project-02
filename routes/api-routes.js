@@ -56,13 +56,14 @@ module.exports = function(app) {
     res.render("account", hbsObject);
   });
 
-  app.post("/upload", upload.single("picture"), (req, res) => {
-      db.Animal.create({
+  app.post("/upload", isAuthenticated, upload.single("picture"), (req, res) => {
+    console.log(req.user)  
+    db.Animal.create({
         animal_species: req.body.type,
         longitude: req.body.longitude,
         latitude: req.body.latitude,
         hostile: true,
-        foundByUser: req.body.username,
+        foundByUser: req.user.userName,
         note: req.body.note,
         picture: fileStoredPath
       })
@@ -88,6 +89,18 @@ module.exports = function(app) {
       };
       res.render("members.handlebars", hbsObject);
     })
+  });
+
+  app.get("/api/previous_post", (req, res) => {
+      db.Animal.findAll({
+        where: {
+          foundByUser: req.user.userName
+        }
+      }).then((results) => {
+        res.json(results)
+      }).catch(err => {
+        res.json(err)
+      });
   });
 
   app.post("/api/signup", (req, res) => {

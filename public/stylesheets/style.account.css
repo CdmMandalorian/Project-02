@@ -15,12 +15,13 @@ body{
 
 h1 {
   font-family: 'Philosopher', sans-serif;
-  position: fixed;
+  position: sticky;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 70%;
   text-align: center;
+  font-size: 52px;
 }
 
 p {
@@ -42,13 +43,16 @@ a {
   padding-left: 7%;
 }
 
-span.form-inline.my-2.my-lg-0 {
-  float: inline-end;
-}
 a.nav-link.active {
   padding-left: 10%;
 }
-
+.sideContainer {
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  display: inline-grid;
+  width: 10%;
+}
 #footer {
   position: sticky;
   font-family: 'Philosopher', sans-serif;
@@ -72,7 +76,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 
 ul.user-posted-list {
   display: inline-grid;
-
+  margin-top: 2%;
 }
 
 .grid {
@@ -80,19 +84,21 @@ ul.user-posted-list {
   margin-inline-end: 10px;
 }
 
-.container {
-  max-width: 960px;
+.previous-postsContainer {
+  max-width: 1080px;
   margin: auto;
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   display: inline-grid;
   width: 15%;
+  margin-left: 25%;
 }
 
 .flex-grid {
-  color: white;
+  color: black;
   display: flex;
   margin: auto -1rem 1rem;
+  width: 1080px;
 }
 
 .col {
@@ -113,10 +119,6 @@ ul.user-posted-list {
   background-color: lightblue;
   text-align: center;
   border: 1px solid black;
-}
-
-#text {
-  text-align: center;
 }
 
 .member-name{
@@ -143,8 +145,20 @@ textarea.whiteboard {
   display: flex;
   justify-content: center;
   text-align: center;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .unselected {
   user-select: none;
+}
+
+ul.user-posted-list#h1 {
+  font-size: 52px;
+}
+
+div.grid-item.box {
+  width: 1000px;
 }

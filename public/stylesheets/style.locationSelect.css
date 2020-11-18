@@ -152,7 +152,7 @@ a {
   position: absolute;
   right: 0px;
   font-family: 'Poppins', sans-serif;
-  margin-top: 2%;
+  margin-top: -2.5%;
 
 }
 form.get-location {
@@ -163,3 +163,4 @@ form.get-location {
 form.add-observation {
   font-family: 'Poppins', sans-serif;
 }
+
