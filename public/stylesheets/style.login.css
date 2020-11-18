@@ -28,8 +28,6 @@ h2 {
   text-align: center;
 }
 
-
-
 #nav-text {
   width: 100%;
 }
@@ -68,4 +66,23 @@ div.navbar-nav {
   font-family: 'Philosopher', sans-serif;
   width: 100%;
   text-align: center;
+}
+
+@media only screen and (min-width: 992px) {
+  {
+
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  {
+
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  {
+
+  }
 }

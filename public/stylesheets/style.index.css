@@ -28,13 +28,6 @@ div.contactContainer {
   margin-left: 0%;
 }
 
-#footer {
-  position: sticky;
-  font-family: 'Philosopher', sans-serif;
-  width: 100%;
-  text-align: center;
-}
-
 form {
   margin-left: 2%;
   width: 980px;
@@ -117,4 +110,23 @@ div.aboutRow1, div.aboutRow2 {
       width: 480px;
       
     }
+}
+
+@media only screen and (min-width: 992px) {
+  {
+
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  {
+
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  {
+
+  }
 }

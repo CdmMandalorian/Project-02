@@ -53,12 +53,6 @@ a.nav-link.active {
   display: inline-grid;
   width: 10%;
 }
-#footer {
-  position: sticky;
-  font-family: 'Philosopher', sans-serif;
-  width: 100%;
-  text-align: center;
-}
 
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
   background-color: #337ab7;
@@ -192,5 +186,24 @@ div.grid-item.box {
   }
   div.grid-item.box{
     width: 1135px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  {
+
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  {
+
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  {
+
   }
 }
