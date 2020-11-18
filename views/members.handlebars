@@ -37,16 +37,17 @@
         <div class="flex-grid">
             <section class="col main">
                 <ul class="user-posted-list"><h1>10 Most Recent Posts</h1>
-                    <div class="grid"></div>
-                    {{#each animal}}
-                        <div class="grid-item box">
-                            <h3>{{ animal_species }}</h3>
-                            <p>Longitude: {{ longitude }}</p>
-                            <p>Latitude: {{ latitude }}</p>
-                            <p>Hostile: {{ hostile }}</p>
-                            <h4>Notes: {{ note }}</h4>
-                        </div>
-                    {{/each}}
+                    <div class="grid">
+                        {{#each animal}}
+                            <div class="grid-item box">
+                                <h3>{{ animal_species }}</h3>
+                                <p>Longitude: {{ longitude }}</p>
+                                <p>Latitude: {{ latitude }}</p>
+                                <p>Hostile: {{ hostile }}</p>
+                                <h4>Notes: {{ note }}</h4>
+                            </div>
+                        {{/each}}
+                    </div>
                 </ul>
 
             </section>
