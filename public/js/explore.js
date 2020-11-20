@@ -1,6 +1,7 @@
+// const mapboxgAccessToken = require("../../config/keys.js");
+
 $.get("/api/animals").then(data => {
-    mapboxgl.accessToken =
-    "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
+    mapboxgl.accessToken = "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
 
     var geojson = {
         'type': 'FeatureCollection',
@@ -69,7 +70,7 @@ $.get("/api/animals").then(data => {
             <p>${animalArray[i].note}</p>
             <p>Found by: ${animalArray[i].foundByUser}</p>
             <p>Created: ${entireDateString}</p>
-            <img src="/img/uploads/${animalArray[i].picture}" >
+            <img src="https://wildlife-observations-img-db.s3-us-west-1.amazonaws.com/${animalArray[i].picture}" >
         </div>`
 
         new mapboxgl.Marker(el)

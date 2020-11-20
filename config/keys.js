@@ -1,0 +1,3 @@
+const mapboxgAccessToken = "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
+const AWS_ACCESS_KEY_ID = 'AKIA452CLZYC3UJDOARW';
+const AWS_SECRET_ACCESS_KEY = `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`;
