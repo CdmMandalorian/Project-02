@@ -56,6 +56,8 @@ Multer
 UUID
 <br>
 Heroku/ClearDB
+<br>
+Amazon Web Services (with aws-adk node.js module)
 
 
 <a name="road-map"></a>

@@ -1,7 +1,7 @@
-// const mapboxgAccessToken = require("../../config/keys.js");
+const mapboxgAccessToken = process.env.mapboxgAccessToken;
 
 $.get("/api/animals").then(data => {
-    mapboxgl.accessToken = "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
+    mapboxgl.accessToken = mapboxgAccessToken;
 
     var geojson = {
         'type': 'FeatureCollection',

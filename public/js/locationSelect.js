@@ -1,4 +1,4 @@
-// const mapboxgAccessToken = require("../../config/keys.js");
+const mapboxgAccessToken = process.env.mapboxgAccessToken
 
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
@@ -21,7 +21,7 @@ $(document).ready(() => {
       marker.setLngLat(center);
     });
 
-    mapboxgl.accessToken = "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
+    mapboxgl.accessToken = mapboxgAccessToken;
     const coordinates = document.getElementById("coordinates");
     const map = new mapboxgl.Map({
       container: "map",

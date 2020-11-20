@@ -14,8 +14,8 @@ let usersAnimals = [];
 
 // Needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
 
-const AWS_ACCESS_KEY_ID = 'AKIA452CLZYC3UJDOARW'
-const AWS_SECRET_ACCESS_KEY = `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`
+const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID
+const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY
 const s3 = new aws.S3({ 
   apiVersion: '2006-03-01',
   params: {Bucket: "wildlife-observations-img-db"} 
