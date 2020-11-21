@@ -1,34 +1,41 @@
 const db = require("../models");
 const passport = require("../config/passport");
-const multer = require("multer");
-const uuid = require("uuid").v4;
-const path = require("path")
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const aws = require('aws-sdk');
+const express = require('express');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
+const uuid = require('uuid').v4;
+const path = require('path');
+// const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = require("../config/keys.js");
 
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 let fileStoredPath = ``;
 let usersAnimals = [];
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./public/img/uploads");
-  },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname)
-    const id = uuid();
-    fileStoredPath = `${id}${ext}`;
-    cb(null, fileStoredPath);
-  }
+// Needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+
+const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID
+const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY
+const s3 = new aws.S3({ 
+  apiVersion: '2006-03-01',
+  params: {Bucket: "wildlife-observations-img-db"} 
 });
-const upload = multer({ storage });
 
-// async function uploadFile(pictureEle){
-//   try{
-//     await upload.single(pictureEle)
-//   }
-//   catch{
-
-//   }
-// }
+const upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: "wildlife-observations-img-db",
+        metadata: (req, file, cb) => {
+            cb(null, { fieldName: file.fieldname })
+        },
+        key: (req, file, cb) => {
+            const ext = path.extname(file.originalname);
+            const id = uuid();
+            fileStoredPath = `${id}${ext}`;
+            cb(null, fileStoredPath);
+        }
+    })
+});
 
 module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
@@ -83,9 +90,9 @@ module.exports = function(app) {
         });
   });
 
-  app.get("/members", isAuthenticated, (req, res) => {
+  app.get("/members", isAuthenticated, async (req, res) => {
     const recentObservations = [];
-    db.Animal.findAll({
+    await db.Animal.findAll({
       limit: 10,
       order: [['createdAt', 'DESC']]
     }).then(function (results){

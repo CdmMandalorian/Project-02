@@ -3,12 +3,11 @@
 ## Table of Contents
 1. [ Description ](#desc)
 2. [ Usage ](#usage)
-3. [ Features ](#features)
-4. [ Visuals ](#visuals)
-5. [ API/Framework Used ](#used-apps)
-6. [ Road Map ](#road-map)
-7. [ Authors ](#authors)
-8. [ License ](#lic)
+3. [ Visuals ](#visuals)
+4. [ Tools ](#tools)
+5. [ Road Map ](#road-map)
+6. [ Authors ](#authors)
+7. [ License ](#lic)
     
 <a name="desc"></a>
 ## Description
@@ -20,12 +19,8 @@ Make an account and log in.
 When you spotted some wildlife that you would like to share, take a picture and then go to the "Create New Observation" button. Use the map provided to select the loction where you found the animal, and send the geo location data to the input field. Fill out the remaining information in the info field and dont forget to add the picture you took!
 The Explore page will allow you to explore the map and find any observations that other users may have found as well.
 
-<a name="features"></a>
-## Features
-
 <a name="visuals"></a>
 ## Visuals
-<br>
 <h3>Home Page</h3>
 <img src="/public/img/README_Images/HomePage.PNG">
 <br>   
@@ -46,8 +41,8 @@ The Explore page will allow you to explore the map and find any observations tha
 <img src="/public/img/README_Images/AccountPage.PNG">
 <br>   
 
-<a name="used-apps"></a>
-## API/Framework Used
+<a name="tools"></a>
+## Tools
 Express
 <br>
 Handlebars
@@ -61,12 +56,13 @@ Multer
 UUID
 <br>
 Heroku/ClearDB
+<br>
+Amazon Web Services (with aws-adk node.js module)
 
 
 <a name="road-map"></a>
 ## Road Map
-Future updates include:
-<br>
+<h3>Here are some future updates we plan to add with future updates:</h3>
 Search and Filter Pages
 <br>
 Update incomplete Observations
