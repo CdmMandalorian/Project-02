@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars")
 const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
+require('dotenv').config()
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
@@ -31,7 +32,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
-require('dotenv').config()
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 

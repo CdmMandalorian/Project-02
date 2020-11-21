@@ -1,7 +1,6 @@
-const mapboxgAccessToken = process.env.mapboxgAccessToken;
-
+// require('dotenv').config()
 $.get("/api/animals").then(data => {
-    mapboxgl.accessToken = mapboxgAccessToken;
+    mapboxgl.accessToken = "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
 
     var geojson = {
         'type': 'FeatureCollection',

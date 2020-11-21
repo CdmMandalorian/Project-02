@@ -1,5 +1,4 @@
-const mapboxgAccessToken = process.env.mapboxgAccessToken
-
+require('dotenv').config()
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
@@ -21,7 +20,7 @@ $(document).ready(() => {
       marker.setLngLat(center);
     });
 
-    mapboxgl.accessToken = mapboxgAccessToken;
+    mapboxgl.accessToken = "pk.eyJ1IjoiYmJyaW50bGUiLCJhIjoiY2toY2VzMXVuMDA1YjJ4bnk3a3Myc2xoOSJ9.utPq30o3rq4GihknsRgSFQ";
     const coordinates = document.getElementById("coordinates");
     const map = new mapboxgl.Map({
       container: "map",
